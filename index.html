@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="https://meyerweb.com/eric/tools/css/reset/reset.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css">
+
+  <title>Bookmarker</title>
+</head>
+
+<body>
+  <main class="">
+    <header class="container">
+      <h1>Bookmarker</h1>
+
+      <button class="js-add-btn add-btn">Add</button>
+
+      <label for="star-filter">
+        Filter By Stars:
+        <select id="star-filter">
+          <option value="All">All</option>
+          <option value="5">* * * * *</option>
+          <option value="4">* * * *</option>
+          <option value="3">* * *</option>
+          <option value="2">* *</option>
+          <option value="1">*</option>
+        </select>
+      </label>
+    </header>
+
+    <section class="bookmark-card container">
+      <header class="container">
+          <h2>The Lord Of the Rings</h2>
+          <p>Stars: * * * *</p>
+      </header>
+      <article>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris malesuada at mi eget molestie. Morbi nec nulla ex.
+          Pellentesque nibh nunc, pulvinar et leo ut, consectetur lacinia eros. Ut at ante eu lectus interdum sodales.
+          Vivamus ex metus, auctor non pulvinar vitae.
+      </article>
+      <a href="#"><button>To Site</button></a>
+
+    </section>
+
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cuid/1.3.8/browser-cuid.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="scripts/Bookmark.js"></script>
+  <script src="scripts/store.js"></script>
+  <script src="scripts/bookmarks-app.js"></script>
+  <script src="scripts/api.js"></script>
+  <script src="scripts/index.js"></script>
+</body>
+
+</html>

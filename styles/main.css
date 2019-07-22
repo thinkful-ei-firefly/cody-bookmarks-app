@@ -1,0 +1,55 @@
+body *{
+  border: 1px black solid;
+}
+
+main{
+  justify-content: center;
+}
+
+header{
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-around;
+}
+
+header h1{
+  font-size: 35px;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}
+
+header h2{
+  font-size: 28px;
+}
+
+header button{
+  padding: 5px;
+  margin: 10px;
+}
+
+header label{
+  margin: 10px;
+}
+
+.container{
+  display: flex;
+}
+
+.bookmark-card{
+  border: 1px black solid;
+  flex-wrap: wrap;
+  margin: 5px;
+}
+
+.bookmark-card header{
+  padding: 5px;
+}
+
+.bookmark-card article{
+  margin: 5px;
+}
+
+.bookmark-card a{
+  margin: 0 5px 5px;
+}
