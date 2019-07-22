@@ -3,6 +3,7 @@
 
 $(document).ready(function (){
   bookmarksApp.bindEventListener();
+  bookmarksApp.render();
 
-  
+  // api calls
 });
