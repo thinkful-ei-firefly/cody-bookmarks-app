@@ -3,7 +3,7 @@
 const store = function () {
   let bookmarks = [];
   let adding = false;
-  let filter = false;
+  let filter = null;
   let error = null;
 
 

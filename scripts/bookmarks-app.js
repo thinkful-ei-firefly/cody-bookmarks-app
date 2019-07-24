@@ -20,13 +20,23 @@ const bookmarksApp = function () {
   }
 
   function generateAllBookmarkCards() {
-    let bookmarksList = [...store.bookmarks];
+    let bookmarkList = [...store.bookmarks];
 
-    console.log(bookmarksList);
+    // if (store.rating) {
+    //   bookmarkList = bookmarkList.filter(
+    //     bookmark => bookmark.rating >= store.filter
+    //   );
+    // }
+
+    if(store.filter > 0){
+      bookmarkList = bookmarkList.filter(bookmark => {
+        return bookmark.rating >= store.filter;
+      });
+    }
 
     let bookmarkCardsHtml = '';
-    for (let i in bookmarksList) {
-      bookmarkCardsHtml += generateBookmarkCard(bookmarksList[i]);
+    for (let i in bookmarkList) {
+      bookmarkCardsHtml += generateBookmarkCard(bookmarkList[i]);
     }
     return bookmarkCardsHtml;
   }
@@ -161,6 +171,14 @@ const bookmarksApp = function () {
     });
   }
 
+  function handleFilterByStars(){
+    $('main').on('change', '#star-filter', (e) =>{
+      store.filter = e.target.value;
+      console.log(store.filter);
+      render();
+    });
+  }
+
   function getBookmarkIdFromElement(currTarg) {
     return ($(currTarg)
       .closest('.bookmark-card')
@@ -178,6 +196,7 @@ const bookmarksApp = function () {
     handleSubmitBookmark();
     handleSelectBookmark();
     handleDeleteClick();
+    handleFilterByStars();
   }
 
   return {
