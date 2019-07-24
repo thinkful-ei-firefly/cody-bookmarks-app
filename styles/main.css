@@ -1,6 +1,6 @@
 body *{
   box-sizing: border-box;
-  border: 1px black solid;
+  /* border: 1px black solid; */
 }
 
 main{
@@ -33,6 +33,10 @@ header label{
   margin: 10px;
 }
 
+input, textarea, button, select, header{
+  border: 1px solid black;
+}
+
 .container{
   display: flex;
 }
@@ -40,7 +44,7 @@ header label{
 .bookmark-card{
   border: 1px black solid;
   flex-wrap: wrap;
-  margin: 5px;
+  margin: 5px 0;
 }
 
 .bookmark-card header{
@@ -57,6 +61,7 @@ header label{
 
 #add-bookmark-form{
   margin: 10px;
+  border: 1px solid black;
 }
 
 #add-bookmark-form div{
