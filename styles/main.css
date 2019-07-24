@@ -83,6 +83,7 @@ input, textarea, button, select{
 
 .bookmark-card:hover{
   background-color: lightgray;
+  cursor: pointer;
 }
 
 .bookmark-card header{

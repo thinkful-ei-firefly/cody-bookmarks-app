@@ -1,6 +1,6 @@
-This app allows a user to add, delete and filter bookmarks by stars. (also put above)
+This app allows a user to add, delete and filter bookmarks by stars. 
 
--'link to app'
+'https://thinkful-ei-firefly.github.io/cody-bookmarks-app/
 
 User Stories
 - A user can add bookmarks with a title, url, description and raring
