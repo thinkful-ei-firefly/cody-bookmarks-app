@@ -4,15 +4,16 @@
 const bookmarksApp = function () {
 
   function generateBookmarkCard(bookmark) {
-    const selectedHtml = `<article>${bookmark.desc}</article>
-    <a href="${bookmark.url}"><button>To ${bookmark.title}</button></a>
-    <button class="js-delete-btn delete-btn">delete</button>`;
+    const selectedHtml = `<article class="container">${bookmark.desc}</article>
+    <a href="${bookmark.url}"><br>
+    <div class="selected-btns"><button>To ${bookmark.title}</button></a>
+    <button class="js-delete-btn delete-btn">delete</button></div>`;
 
     // conditionals if expanded or not
     return `<section class="bookmark-card container" data-bookmark-id=${bookmark.id}>
     <header class="container">
       <h2>${bookmark.title}</h2>
-      <p>Stars:${bookmark.rating}</p>
+      <p>Stars: ${bookmark.rating}</p>
     </header>
     ${bookmark.selected ? selectedHtml : ''}
   </section>`;
@@ -22,32 +23,27 @@ const bookmarksApp = function () {
   function generateAllBookmarkCards() {
     let bookmarkList = [...store.bookmarks];
 
-    // if (store.rating) {
-    //   bookmarkList = bookmarkList.filter(
-    //     bookmark => bookmark.rating >= store.filter
-    //   );
-    // }
-
     if(store.filter > 0){
       bookmarkList = bookmarkList.filter(bookmark => {
         return bookmark.rating >= store.filter;
       });
     }
 
-    let bookmarkCardsHtml = '';
+    let bookmarkCardsHtml = '<div class="cards container">';
     for (let i in bookmarkList) {
       bookmarkCardsHtml += generateBookmarkCard(bookmarkList[i]);
     }
+    bookmarkCardsHtml += '</div>';
+
+
     return bookmarkCardsHtml;
   }
 
   function generateBookmarkForm() {
-    return `<form id="add-bookmark-form" name="add-bookmark-form">
+    return `<form id="add-bookmark-form" name="add-bookmark-form" class="container">
     <div>
-      <label for="title">Site Name:</label>
+      <label for="title">Title:</label>
       <input type="text" id="title" name="title" required>
-    </div>
-    <div>
       <label for="rating">Stars</label>
       <select id="rating" name="rating" id="rating" required>
         <option value="5">* * * * *</option>
@@ -58,14 +54,16 @@ const bookmarksApp = function () {
       </select>
     </div>
     <div>
-      <label for="desc">Description</label>
+    </div>
+    <div>
+      <label for="desc">Description: </label><br>
       <textarea id="desc" name="desc" rows="3" cols="33" required></textarea>
     </div>
     <div>
-      <label for="url">Url</label>
+      <label for="url">url: </label>
       <input type="url" id="url" name="url" required> 
     </div>
-    <input type="submit" value="Submit">
+    <input type="submit" value="Submit" class="bm-submit">
   </form>`;
   }
 
@@ -78,12 +76,12 @@ const bookmarksApp = function () {
     <label for="star-filter">
       Filter By Stars:
       <select id="star-filter">
-        <option value="">All</option>
-        <option value="5">* * * * *</option>
-        <option value="4">* * * *</option>
-        <option value="3">* * *</option>
-        <option value="2">* *</option>
-        <option value="1">*</option>
+        <option value="null" ${store.filter === null ?'selected':''}>All</option>
+        <option value="5" ${store.filter === '5' ?'selected':''}>5</option>
+        <option value="4" ${store.filter === '4' ?'selected':''}>4</option>
+        <option value="3" ${store.filter === '3' ?'selected':''}>3</option>
+        <option value="2" ${store.filter === '2' ?'selected':''}>2</option>
+        <option value="1" ${store.filter === '1' ?'selected':''}>1</option>
       </select>
     </label>
   </header>`;
@@ -159,6 +157,7 @@ const bookmarksApp = function () {
   function handleDeleteClick() {
     $('main').on('click', '.js-delete-btn', (e) => {
       const id = getBookmarkIdFromElement(e.currentTarget);
+
       api.deleteBookmark(id)
         .then(() => {
           store.findAndDelete(id);

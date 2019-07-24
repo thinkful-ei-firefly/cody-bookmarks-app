@@ -3,7 +3,13 @@ body *{
   /* border: 1px black solid; */
 }
 
+/* body{
+  margin-left: auto;
+  margin-right: auto;
+} */
+
 main{
+  margin: auto;
   justify-content: center;
 }
 
@@ -11,6 +17,7 @@ header{
   flex-wrap: wrap;
   width: 100%;
   justify-content: space-around;
+  border-bottom: 1px black solid;
 }
 
 header h1{
@@ -33,7 +40,20 @@ header label{
   margin: 10px;
 }
 
-input, textarea, button, select, header{
+section header{
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+button:hover{
+  cursor: pointer;
+}
+
+section button{
+  margin:0;
+}
+
+input, textarea, button, select{
   border: 1px solid black;
 }
 
@@ -41,10 +61,28 @@ input, textarea, button, select, header{
   display: flex;
 }
 
+.add-btn{
+  padding: 10px;
+}
+
+.bm-submit{
+  margin: 5px;
+  padding: 10px;
+  justify-content: center;
+}
+
+.cards{
+  flex-direction: column;
+}
+
 .bookmark-card{
   border: 1px black solid;
   flex-wrap: wrap;
   margin: 5px 0;
+}
+
+.bookmark-card:hover{
+  background-color: lightgray;
 }
 
 .bookmark-card header{
@@ -59,8 +97,13 @@ input, textarea, button, select, header{
   margin: 0 5px 5px;
 }
 
+.selected-btns{
+  margin: 5px;
+}
+
 #add-bookmark-form{
-  margin: 10px;
+  flex-direction: column;
+  margin: 10px 0;
   border: 1px solid black;
 }
 
@@ -68,6 +111,25 @@ input, textarea, button, select, header{
   margin: 5px;
 }
 
-#add-bookmark-form .desc{
-  width: 90%;
+@media only screen and (min-width: 700px){
+  main {
+    max-width: 1000px;
+  }
+
+  .bookmark-card{
+    width: 300px;
+  }
+
+  .cards{
+    margin: 0 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .bookmark-card{
+    margin: 10px;
+    align-self: flex-start;
+  }
+
+
 }
